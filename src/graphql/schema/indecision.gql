@@ -1,0 +1,15 @@
+extend type Query{
+  indecisionList(limit: Int = 0, offset: Int = 0): [Indecision]
+}
+
+extend type Mutation{
+  createIndecision(data: IndecisionInput): Boolean
+}
+
+type Indecision {
+  title: String
+}
+
+input IndecisionInput{
+  title: String
+}
