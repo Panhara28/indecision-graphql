@@ -29,12 +29,21 @@ const removeIndecision = async(_: any, { id }: any, ctx: ContextType) => {
   return true;
 }
 
+const removeAllIndecision = async(_: any, { option }: any, ctx: ContextType) =>{
+  const knex = ctx.knex;
+  if(option === "all"){
+    await knex.raw("DELETE FROM indecisions");
+    return true;
+  }
+}
+
 export const IndecisionResolver = {
   Query: {
     indecisionList
   },
   Mutation: {
     createIndecision,
-    removeIndecision
+    removeIndecision,
+    removeAllIndecision
   }
 }
