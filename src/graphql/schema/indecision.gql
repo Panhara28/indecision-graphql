@@ -4,9 +4,11 @@ extend type Query{
 
 extend type Mutation{
   createIndecision(data: IndecisionInput): Boolean
+  removeIndecision(id: Int!): Boolean
 }
 
 type Indecision {
+  id: Int
   title: String
 }
 
